@@ -53,12 +53,13 @@ public class BIOServer {
     public static void handler(Socket socket) {
         try {
             // 接收数据
-            log.info("thread info id：{}+ threadName：{}",Thread.currentThread().getId()+Thread.currentThread().getName());
+            log.info("thread info id:{},threadName:{}",Thread.currentThread().getId(),Thread.currentThread().getName());
             byte[] bytes = new byte[1024];
             // 通过socket获取输入流
             InputStream inputStream = socket.getInputStream();
             // 循环读取客户端发送的数据
             while (true){
+                log.info("thread info id:{},threadName:{}",Thread.currentThread().getId(),Thread.currentThread().getName());
                 int readLen = inputStream.read(bytes);
                 /**
                  *条件:判断数据读取完毕
